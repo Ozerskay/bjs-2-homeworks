@@ -1,35 +1,24 @@
 "use strict"
 function solveEquation(a, b, c) {
-  let D = b** -4*a*c;
+  let d = b** -4*a*c;
   let x1, x2;
   let arr = [];
-  if (D < 0) {
-    console.log("Корней нет")
-  } else if (D == 0) {
+    if (d == 0) {
     return x1 = -b/(2*a);
-  } else if (D > 0) {
-    x1 = (-b + Math.sqrt(d) ) / (2*a);
-    x2 = (-b - Math.sqrt(d) )/(2*a);
+  } else if (d > 0) {
+   arr.push(-b + Math.sqrt(d) ) / (2*a);
+   arr.push(-b - Math.sqrt(d) )/(2*a);
   }
-  return arr;
+  return d;
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
-    if (isNaN(percent)) {
+    if (isNaN(percent)) || isNaN(contribution) || (isNaN(amount)) || (isNaN(countMonths)) {
       return false;
-    }
-    if (isNaN(contribution)) {
-      return false;
-    }
-    if (isNaN(amount)) {
-      return false;
-    }
+    } 
     let P = percent / 100 / 12;
     let S = amount - contribution;
     let M = S * (P + (P / (Math.pow(1 + P, countMonths) - 1)));
-    let sum = M * countMonths - contribution;
-    return sum.toFixed(2);
-    return Number(sum);
-
+    return Number(sum.toFixed(2));
 }
